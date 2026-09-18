@@ -114,7 +114,7 @@ function Index() {
           <aside id="principles" className="border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <p className="mb-7 font-mono text-[10px] uppercase text-muted-foreground">Operating standard</p>
             <div className="bg-primary p-5 text-primary-foreground"><ShieldCheck size={21} /><h3 className="mt-5 font-display text-xl font-bold">Responsible disclosure first.</h3><p className="mt-3 text-xs leading-6 opacity-80">No data theft. No sale. No public detail that creates fresh risk. Evidence is minimized and owners get time to repair.</p><button onClick={() => setReportOpen(true)} className="mt-5 inline-flex items-center gap-2 border-b border-primary-foreground/40 pb-1 text-[10px] font-semibold uppercase">Open reporting channel <Send size={12} /></button></div>
-            <div className="mt-7 divide-y divide-border">{["Collect the minimum proof.", "Protect people before reputation.", "Publish only after risk is reduced.", "Leave awareness, not damage."].map((text, index) => <div key={text} className="grid grid-cols-[42px_1fr] py-5"><span className="font-mono text-[9px] text-muted-foreground">0{index + 1}</span><p className="text-sm font-medium">{text}</p></div>)News>)}</div>
+            <div className="mt-7 divide-y divide-border">{["Collect the minimum proof.", "Protect people before reputation.", "Publish only after risk is reduced.", "Leave awareness, not damage."].map((text, index) => <div key={text} className="grid grid-cols-[42px_1fr] py-5"><span className="font-mono text-[9px] text-muted-foreground">0{index + 1}</span><p className="text-sm font-medium">{text}</p></div>)}</div>
           </aside>
         </section>
 
