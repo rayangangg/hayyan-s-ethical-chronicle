@@ -14,16 +14,150 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      page_views: {
+        Row: {
+          created_at: string
+          id: number
+          path: string
+          viewed_on: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          path?: string
+          viewed_on?: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          path?: string
+          viewed_on?: string
+        }
+        Relationships: []
+      }
+      posts: {
+        Row: {
+          author_name: string
+          category: string
+          content: string
+          cover_url: string | null
+          created_at: string
+          id: string
+          published: boolean
+          slug: string
+          summary: string
+          tags: string[]
+          title: string
+          updated_at: string
+          views: number
+        }
+        Insert: {
+          author_name?: string
+          category?: string
+          content?: string
+          cover_url?: string | null
+          created_at?: string
+          id?: string
+          published?: boolean
+          slug: string
+          summary?: string
+          tags?: string[]
+          title: string
+          updated_at?: string
+          views?: number
+        }
+        Update: {
+          author_name?: string
+          category?: string
+          content?: string
+          cover_url?: string | null
+          created_at?: string
+          id?: string
+          published?: boolean
+          slug?: string
+          summary?: string
+          tags?: string[]
+          title?: string
+          updated_at?: string
+          views?: number
+        }
+        Relationships: []
+      }
+      risk_reports: {
+        Row: {
+          admin_notes: string
+          affected_system: string
+          created_at: string
+          details: string
+          id: string
+          reporter_email: string
+          reporter_name: string
+          severity: string
+          status: string
+        }
+        Insert: {
+          admin_notes?: string
+          affected_system: string
+          created_at?: string
+          details: string
+          id?: string
+          reporter_email: string
+          reporter_name: string
+          severity?: string
+          status?: string
+        }
+        Update: {
+          admin_notes?: string
+          affected_system?: string
+          created_at?: string
+          details?: string
+          id?: string
+          reporter_email?: string
+          reporter_name?: string
+          severity?: string
+          status?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      bump_post_views: { Args: { p_slug: string }; Returns: undefined }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      record_visit: { Args: { p_path: string }; Returns: number }
+      visit_total: { Args: never; Returns: number }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "editor"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +284,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "editor"],
+    },
   },
 } as const
